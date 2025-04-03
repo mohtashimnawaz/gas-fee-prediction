@@ -1,6 +1,6 @@
 'use client'
 import { useAnchorWallet, useConnection } from '@solana/wallet-adapter-react'
-import { Program, Provider, Idl } from '@coral-xyz/anchor'
+import { Program, Provider } from '@coral-xyz/anchor'
 import { IDL } from '@/types/anchor'
 import { PublicKey } from '@solana/web3.js'
 import { useMemo } from 'react'

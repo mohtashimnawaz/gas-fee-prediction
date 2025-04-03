@@ -1,6 +1,7 @@
 import './../styles/globals.css'
 import { Providers } from './providers'
 import { Inter } from 'next/font/google'
+import Navbar from '@/components/Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,7 +14,8 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className={`${inter.className} bg-gray-50 dark:bg-gray-900`}>
         <Providers>
-          <main className="min-h-screen">
+          <Navbar />
+          <main className="container mx-auto px-4 py-8">
             {children}
           </main>
         </Providers>
