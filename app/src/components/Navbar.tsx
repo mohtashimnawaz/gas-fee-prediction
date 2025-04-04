@@ -1,6 +1,7 @@
 'use client'
-import { WalletMultiButton } from '@solana/wallet-adapter-react-ui'
 import Link from 'next/link'
+import ClientOnly from './ClientOnly'
+import { WalletMultiButton } from '@solana/wallet-adapter-react-ui'
 
 export default function Navbar() {
   return (
@@ -9,7 +10,9 @@ export default function Navbar() {
         <Link href="/" className="text-xl font-bold">
           Fee Predictor
         </Link>
-        <WalletMultiButton className="!bg-primary !text-white" />
+        <ClientOnly>
+          <WalletMultiButton className="!bg-primary !text-white" />
+        </ClientOnly>
       </div>
     </nav>
   )
