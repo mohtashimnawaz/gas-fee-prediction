@@ -4,13 +4,8 @@ import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui'
 import { clusterApiUrl } from '@solana/web3.js'
 import { ReactNode, useMemo } from 'react'
-import {
-  PhantomWalletAdapter,
-  SolflareWalletAdapter,
-  BackpackWalletAdapter
-} from '@solana/wallet-adapter-wallets'
-
-require('@solana/wallet-adapter-react-ui/styles.css')
+import { PhantomWalletAdapter, SolflareWalletAdapter } from '@solana/wallet-adapter-wallets'
+import { BackpackWalletAdapter } from '@solana/wallet-adapter-backpack'
 
 export function Providers({ children }: { children: ReactNode }) {
   const network = WalletAdapterNetwork.Devnet
@@ -23,7 +18,7 @@ export function Providers({ children }: { children: ReactNode }) {
     () => [
       new PhantomWalletAdapter(),
       new SolflareWalletAdapter({ network }),
-      new BackpackWalletAdapter()
+      new BackpackWalletAdapter() // Properly imported
     ],
     [network]
   )
