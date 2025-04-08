@@ -1,26 +1,18 @@
-import './/globals.css'
-import { Providers } from './providers'
-import { Inter } from 'next/font/google'
-import Navbar from '@/components/Navbar'
-import ClientOnly from '@/components/ClientOnly'
+import "./globals.css";
+import { SolanaProvider } from "@/components/WalletProvider";
 
-const inter = Inter({ subsets: ['latin'] })
+export const metadata = {
+  title: "Solana Fee Predictor",
+};
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.className} bg-gray-50 dark:bg-gray-900`}>
-        <Providers>
-          <Navbar />
-          <main className="container mx-auto px-4 py-8">
-            {children}
-          </main>
-        </Providers>
+    <html lang="en">
+      <body>
+        <SolanaProvider>
+          <main className="container">{children}</main>
+        </SolanaProvider>
       </body>
     </html>
-  )
+  );
 }
